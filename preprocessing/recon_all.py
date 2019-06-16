@@ -1,10 +1,15 @@
 #!/bin/env python3
+import os
 import glob
-from os.path import join, isdir
 from multiprocessing.pool import Pool
+from os.path import join, isdir, basename
 
-def recon_all(subject_id):
-    pass
+
+def recon_all(vol_file):
+    sid = basename(vol_file).split('_')[0]
+    t2_file = vol_file.replace('T1Wreg.nii.gz', 'T2Wreg.nii.gz')
+    cmd = f'recon-all -i {vol_file}'
+    print(cmd)
 
 if __name__ == "__main__":
     # Set dataset folder
@@ -14,12 +19,12 @@ if __name__ == "__main__":
 
     # Output Folder
     out_folder = '/home/jullygh/Downloads/MS/processed_fs/'
-    if not isdir(out_folder):
-        os.mkdir(out_folder)
+    # if not isdir(out_folder):
+    #     os.mkdir(out_folder)
 
     # Find files in folder
     files = glob.glob(pattern, recursive=True)
     for f in files:
-        print(f)
+        recon_all(f)
 
     print(f'Total files found: {len(files)}')
