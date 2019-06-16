@@ -4,7 +4,7 @@ from os.path import join
 
 if __name__ == "__main__":
     # Set dataset folder
-    dataset_folder = '/disk/Datasets/ADNI/FreeSurferSD'
+    dataset_folder = '/home/jullygh/Downloads/MS/extracted'
 
     # Find files in folder
     files = glob.glob(join(dataset_folder, 'patient*_study1_T1W.nii.gz'))
