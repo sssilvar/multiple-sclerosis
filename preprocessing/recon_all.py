@@ -29,6 +29,7 @@ if __name__ == "__main__":
         # Process subjects in parallel
         pool = Pool(20)
         pool.map(recon_all, files)
+        pool.close()
     else:
         print('No process started')
     print('Done')
