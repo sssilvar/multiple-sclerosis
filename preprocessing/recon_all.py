@@ -7,7 +7,7 @@ if __name__ == "__main__":
     dataset_folder = '/home/jullygh/Downloads/MS/extracted'
 
     # Find files in folder
-    files = glob.glob(join(dataset_folder, 'patient*_study1_T1W.nii.gz'))
+    files = glob.glob(join(dataset_folder, '*.nii.gz'))
     for f in files:
         print(f)
 
