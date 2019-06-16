@@ -8,7 +8,7 @@ from os.path import join, isdir, basename
 def recon_all(vol_file):
     sid = basename(vol_file).split('_')[0]
     t2_file = vol_file.replace('T1Wreg.nii.gz', 'T2Wreg.nii.gz')
-    cmd = f'recon-all -i {vol_file}'
+    cmd = f'recon-all -i {vol_file} -T2 {t2_file} -s {sid} -sd {out_folder} -all'
     print(cmd)
 
 if __name__ == "__main__":
