@@ -8,6 +8,7 @@ import torch
 from torch import nn, optim
 from torchvision import transforms
 from torch.utils.data import DataLoader
+import torch.nn.functional as F
 
 from datasets.ms import MSISBIDataset
 from unet.unet_model import UNet
@@ -23,9 +24,10 @@ if __name__ == '__main__':
 
     # CNN architecture
     # model = UNet(n_channels=1, n_classes=1)
-    model = VNet(elu=False)
+    model = VNet(elu=False,nll=False)
     optimizer = optim.Adam(model.parameters())
-    loss_function = nn.BCELoss()
+    # loss_function = nn.BCELoss()
+    loss_function = F.nll_loss
 
     # Train
     train_set = DataLoader(dataset, batch_size=1)
@@ -33,10 +35,10 @@ if __name__ == '__main__':
     for epoch in range(epochs):
         model.train()
         for inputs, outputs in train_set:
-            print(inputs.shape, outputs.shape)
+            print('Inputs shape', inputs.shape, outputs.shape)
             optimizer.zero_grad()
             results = model(inputs)
-            print(results.shape)
+            print('Results shape', results.shape)
             loss = loss_function(results, outputs)
             loss.backward()
             optimizer.step()

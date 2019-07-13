@@ -69,8 +69,8 @@ class MSISBIDataset(Dataset):
         # Load images and extract values
         # img = torch.tensor([nb.load(nii_img).get_data()[:50, :50, :50]], dtype=torch.float)
         # mask = torch.tensor([nb.load(nii_mask).get_data()[:50, :50, :50]], dtype=torch.float)
-        img = torch.rand(size=(1, 48, 48, 48))
-        mask = torch.rand(size=(1, 48, 48, 48)) > 0.5
+        img = torch.rand(size=(1, 48, 64, 64))
+        mask = torch.rand(size=(1, 48, 64, 64)) > 0.5
 
         return img, mask
 

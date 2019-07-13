@@ -171,7 +171,6 @@ class VNet(nn.Module):
     def forward(self, x):
         out16 = self.in_tr(x)
         out32 = self.down_tr32(out16)
-        print('Layer 1 passed')
         out64 = self.down_tr64(out32)
         out128 = self.down_tr128(out64)
         out256 = self.down_tr256(out128)
