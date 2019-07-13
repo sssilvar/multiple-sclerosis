@@ -58,12 +58,12 @@ class MSISBIDataset(Dataset):
         self.get_data_file()
 
     def __getitem__(self, index):
-        if self.train:
-            sid = self.data['sid'][index]
-            number = sid[-2:]
-            subject_folder = join(self.root, 'training', sid)
-            nii_img = join(subject_folder, 'preprocessed', f'training{number}_01_flair_pp.nii')
-            nii_mask = join(subject_folder, 'masks', f'training{number}_01_mask1.nii')
+        # if self.train:
+        #     sid = self.data['sid'][index]
+        #     number = sid[-2:]
+        #     subject_folder = join(self.root, 'training', sid)
+        #     nii_img = join(subject_folder, 'preprocessed', f'training{number}_01_flair_pp.nii')
+        #     nii_mask = join(subject_folder, 'masks', f'training{number}_01_mask1.nii')
 
         # print(nii_mask, nii_img)
         # Load images and extract values
