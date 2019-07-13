@@ -79,6 +79,6 @@ class MSISBIDataset(Dataset):
 
     def get_data_file(self):
         if self.train:
-            self.data = pd.read_csv(join(self.root, 'training', 'training.csv'))
+            self.data = [i for i in range(5)]  # pd.read_csv(join(self.root, 'training', 'training.csv'))
         else:
             self.data = pd.read_csv(join(self.root, 'testdata_website', 'testing.csv'))
